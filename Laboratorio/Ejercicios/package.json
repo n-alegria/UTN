@@ -1,0 +1,11 @@
+{
+  "name": "ejercicios",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc --outDir build"
+  },
+  "author": "",
+  "license": "ISC"
+}
