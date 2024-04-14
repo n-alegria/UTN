@@ -1,2 +1,2 @@
 # UTN
-Técnicatura en Programación Informática
+Tecnicatura en Programación Informática
