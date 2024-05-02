@@ -6,6 +6,8 @@
 2) Transpilar los archivos .ts
 3) Compilar el archivo "tsconfig.json" desde Terminal -> Ejecutar tarea de compilacion / tsc: compilación tsconfig.json
 4) En "Run and Debug" crear el archivo "launch.json", dentro de este ira el nombre del archivo a debuggear
+5) En el archivo tsconfig.json agregar la configuracion "Node.js: Launch Program" en el cual se debe modificar la clave "program" en el cual se debe indicar el nombre del archivo .js a debbugear"
+
 
 * Para transpilar el archivo SIN node:
 -> tsc <nombre del archivo>.ts
