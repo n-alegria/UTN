@@ -1,0 +1,310 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "2022_clase03",
+    "dateExported": "2023-09-11T14:48:49.155Z",
+    "version": "1.1",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "6396fadb-7e2e-40fb-b204-3a16a6c970a5",
+            "colId": "9ada3fd9-c53d-4ac4-8bfb-d69880d5bcdd",
+            "containerId": "",
+            "name": "01_test_envio",
+            "url": "http://localhost/prog_3/clase03/01_envio/clase03_01.php",
+            "method": "POST",
+            "sortNum": 5000,
+            "created": "2023-09-11T10:11:46.387Z",
+            "modified": "2023-09-11T12:31:07.121Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "miParametro",
+                    "value": "valor get",
+                    "isDisabled": true,
+                    "isPath": false
+                }
+            ],
+            "body": {
+                "type": "formdata",
+                "raw": "",
+                "form": [
+                    {
+                        "name": "mi_campo",
+                        "value": "valor post"
+                    }
+                ]
+            },
+            "tests": []
+        },
+        {
+            "_id": "cb8c0ae9-1f1e-4a05-b9ea-a874cbdc5885",
+            "colId": "9ada3fd9-c53d-4ac4-8bfb-d69880d5bcdd",
+            "containerId": "",
+            "name": "02_archivos",
+            "url": "http://localhost/prog_3/clase03/02_archivos/clase03_02.php",
+            "method": "POST",
+            "sortNum": 20000,
+            "created": "2022-03-02T18:43:56.189Z",
+            "modified": "2023-09-11T12:57:54.603Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "formdata",
+                "raw": "",
+                "form": [
+                    {
+                        "name": "tipoEjemplo",
+                        "value": "8"
+                    }
+                ]
+            },
+            "tests": []
+        },
+        {
+            "_id": "42275a3f-ced8-4916-9a47-3b6a6cf0b5be",
+            "colId": "9ada3fd9-c53d-4ac4-8bfb-d69880d5bcdd",
+            "containerId": "",
+            "name": "06_subir_archivos_múltiples",
+            "url": "http://localhost/prog_3/clase03/03_archivos_upload/test.php",
+            "method": "POST",
+            "sortNum": 27500,
+            "created": "2023-09-11T10:30:35.375Z",
+            "modified": "2023-09-11T14:43:10.561Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "formdata",
+                "raw": "",
+                "form": [],
+                "files": [
+                    {
+                        "name": "archivo[]",
+                        "value": "c:\\Users\\Maxi\\Pictures\\flor.jpg"
+                    },
+                    {
+                        "name": "archivo[]",
+                        "value": "c:\\Users\\Maxi\\Pictures\\galaxia.jpg"
+                    }
+                ]
+            },
+            "tests": []
+        },
+        {
+            "_id": "fc45b9b0-25f8-46d7-b7f7-9864d16ae2aa",
+            "colId": "9ada3fd9-c53d-4ac4-8bfb-d69880d5bcdd",
+            "containerId": "",
+            "name": "03_archivos_crud",
+            "url": "http://localhost/prog_3/clase03/02_archivos/crud/clase03_02_crud.php",
+            "method": "POST",
+            "sortNum": 30000,
+            "created": "2022-03-14T12:34:48.972Z",
+            "modified": "2023-09-11T13:18:27.443Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "formdata",
+                "raw": "",
+                "form": [
+                    {
+                        "name": "tipoEjemplo",
+                        "value": "2"
+                    },
+                    {
+                        "name": "clave",
+                        "value": "0"
+                    },
+                    {
+                        "name": "valor_uno",
+                        "value": "valor_modif",
+                        "isDisabled": true
+                    },
+                    {
+                        "name": "valor_dos",
+                        "value": "88",
+                        "isDisabled": true
+                    }
+                ]
+            },
+            "tests": []
+        },
+        {
+            "_id": "3916522f-4c95-4669-adf9-ec59b5c7daf3",
+            "colId": "9ada3fd9-c53d-4ac4-8bfb-d69880d5bcdd",
+            "containerId": "",
+            "name": "04_archivos_poo_crud",
+            "url": "http://localhost/prog_3/clase03/02_archivos/crud/clase03_03_poo_crud.php",
+            "method": "POST",
+            "sortNum": 50000,
+            "created": "2022-03-14T15:45:51.881Z",
+            "modified": "2023-09-11T13:25:15.210Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "formdata",
+                "raw": "",
+                "form": [
+                    {
+                        "name": "tipoEjemplo",
+                        "value": "2"
+                    },
+                    {
+                        "name": "clave",
+                        "value": "2"
+                    },
+                    {
+                        "name": "valor_uno",
+                        "value": "uuuuuzxfvzxvzxcv"
+                    },
+                    {
+                        "name": "valor_dos",
+                        "value": "8883333"
+                    }
+                ]
+            },
+            "tests": []
+        },
+        {
+            "_id": "feb653a1-bde1-423d-872c-8d1c360ec305",
+            "colId": "9ada3fd9-c53d-4ac4-8bfb-d69880d5bcdd",
+            "containerId": "",
+            "name": "05_subir_archivos",
+            "url": "http://localhost/prog_3/clase03/03_archivos_upload/upload.php",
+            "method": "POST",
+            "sortNum": 52500,
+            "created": "2023-09-11T10:27:40.549Z",
+            "modified": "2023-09-11T14:30:10.535Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "formdata",
+                "raw": "",
+                "form": [],
+                "files": [
+                    {
+                        "name": "archivo",
+                        "value": "c:\\Users\\Maxi\\Pictures\\monumental_2022.webp"
+                    }
+                ]
+            },
+            "tests": []
+        },
+        {
+            "_id": "caecf141-ae05-4634-99d0-6dc9939dc53c",
+            "colId": "9ada3fd9-c53d-4ac4-8bfb-d69880d5bcdd",
+            "containerId": "",
+            "name": "ejercicio_clase03_poo_crud_alumnos-post",
+            "url": "http://localhost/prog_3/ejercicio_clase03/nexo_poo.php",
+            "method": "POST",
+            "sortNum": 55000,
+            "created": "2022-03-14T13:53:38.208Z",
+            "modified": "2022-03-14T19:25:12.741Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "formdata",
+                "raw": "",
+                "form": [
+                    {
+                        "name": "accion",
+                        "value": "agregar"
+                    },
+                    {
+                        "name": "legajo",
+                        "value": "3"
+                    },
+                    {
+                        "name": "apellido",
+                        "value": "Gonzalez"
+                    },
+                    {
+                        "name": "nombre",
+                        "value": "Ramiro"
+                    }
+                ]
+            },
+            "tests": []
+        },
+        {
+            "_id": "4d20de03-9afb-442e-ba16-eceacaf2a450",
+            "colId": "9ada3fd9-c53d-4ac4-8bfb-d69880d5bcdd",
+            "containerId": "",
+            "name": "ejercicio_clase03_poo_crud_alumnos-get",
+            "url": "http://localhost/prog_3/ejercicio_clase03/nexo_poo.php?accion=listar",
+            "method": "GET",
+            "sortNum": 60000,
+            "created": "2022-03-14T19:10:26.322Z",
+            "modified": "2022-03-14T19:24:51.847Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "accion",
+                    "value": "listar",
+                    "isPath": false
+                }
+            ],
+            "tests": []
+        },
+        {
+            "_id": "dbdb49ce-8329-465f-b690-d8305d8afe2c",
+            "colId": "9ada3fd9-c53d-4ac4-8bfb-d69880d5bcdd",
+            "containerId": "",
+            "name": "ejercicio_clase04_poo_crud_alumno-get",
+            "url": "http://localhost/prog_3/ejercicio_clase04/nexo_poo_foto.php?accion=listar",
+            "method": "GET",
+            "sortNum": 70000,
+            "created": "2023-09-11T10:35:47.928Z",
+            "modified": "2023-09-11T10:35:47.928Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "accion",
+                    "value": "listar",
+                    "isPath": false
+                }
+            ],
+            "tests": []
+        },
+        {
+            "_id": "bf591e0f-e44b-4a12-a156-72cccd75e228",
+            "colId": "9ada3fd9-c53d-4ac4-8bfb-d69880d5bcdd",
+            "containerId": "",
+            "name": "ejercicio_clase04_poo_crud_alumno-post",
+            "url": "http://localhost/prog_3/ejercicio_clase04/nexo_poo_foto.php",
+            "method": "POST",
+            "sortNum": 80000,
+            "created": "2023-09-11T10:35:56.385Z",
+            "modified": "2023-09-11T10:35:56.385Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "formdata",
+                "raw": "",
+                "form": [
+                    {
+                        "name": "accion",
+                        "value": "listar"
+                    },
+                    {
+                        "name": "legajo",
+                        "value": "10"
+                    },
+                    {
+                        "name": "apellido",
+                        "value": "perezfff"
+                    },
+                    {
+                        "name": "nombre",
+                        "value": "juanggg"
+                    }
+                ],
+                "files": [
+                    {
+                        "name": "foto",
+                        "value": "C:\\Users\\Maxi\\Pictures\\2018.jpg"
+                    }
+                ]
+            },
+            "tests": []
+        }
+    ]
+}
