@@ -1,0 +1,18 @@
+// Creo un nuevo proyecto Node.js
+En una carpeta vacía, escribir el comando:
+
+> npm init -y ( -y: responde si a todas las preguntas predeterminadas de la inicialización )
+
+// Agregar el archivo dónde se creará el servidor.
+* Para la creación se utilizará el framework express.
+
+> npm install express
+
+* Opcionalmente, agregar las definiciones de tipos de Node.js.
+
+> npm install -g @types/node ( -g: instalar una dependencia de forma global en el sistema. Estará disponible para todos los proyectos del sistema, en lugar de estar limitado a un proyecto específico )
+> npm install --save-dev @types/node ( --save-dev: para instalar un paquete npm y guardarlo como una dependencia de desarrollo )
+
+// Se ejecuta el archivo resultante de la transpilación usando 
+
+> node < archivo.js >

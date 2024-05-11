@@ -1,0 +1,258 @@
+{
+    "clientName": "Thunder Client",
+    "collectionName": "2024-servidor_node",
+    "collectionId": "3e46b518-1431-4950-87c8-6f04057ecfa0",
+    "dateExported": "2024-05-09T11:25:41.374Z",
+    "version": "1.2",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "e1eb59ed-30c6-49ae-871b-2952e38cb181",
+            "colId": "3e46b518-1431-4950-87c8-6f04057ecfa0",
+            "containerId": "",
+            "name": "01.- get",
+            "url": "http://localhost:9876",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2024-05-09T11:14:27.201Z",
+            "modified": "2024-05-09T11:14:27.201Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "321f2d48-f0a6-40fd-af1d-6cdc1267b197",
+            "colId": "3e46b518-1431-4950-87c8-6f04057ecfa0",
+            "containerId": "",
+            "name": "02.- post",
+            "url": "http://localhost:9876",
+            "method": "POST",
+            "sortNum": 20000,
+            "created": "2024-05-09T11:14:27.202Z",
+            "modified": "2024-05-09T11:14:27.202Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "1b61e9b7-940c-4ea8-96e2-3a43285b868c",
+            "colId": "3e46b518-1431-4950-87c8-6f04057ecfa0",
+            "containerId": "",
+            "name": "03.- put",
+            "url": "http://localhost:9876",
+            "method": "PUT",
+            "sortNum": 30000,
+            "created": "2024-05-09T11:14:27.204Z",
+            "modified": "2024-05-09T11:14:27.204Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "517008cb-2458-41a0-aec9-94895b2e2f37",
+            "colId": "3e46b518-1431-4950-87c8-6f04057ecfa0",
+            "containerId": "",
+            "name": "04.- delete",
+            "url": "http://localhost:9876",
+            "method": "DELETE",
+            "sortNum": 40000,
+            "created": "2024-05-09T11:14:27.205Z",
+            "modified": "2024-05-09T11:14:27.205Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "e54e7a3c-64c0-4539-8f6a-ddd40c6cec2d",
+            "colId": "3e46b518-1431-4950-87c8-6f04057ecfa0",
+            "containerId": "",
+            "name": "05.- GET - productos",
+            "url": "http://localhost:9876/productos",
+            "method": "GET",
+            "sortNum": 50000,
+            "created": "2024-05-09T11:14:27.206Z",
+            "modified": "2024-05-09T11:14:27.206Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "d4d3c25e-d24a-47f4-aa33-a8bb210b7371",
+            "colId": "3e46b518-1431-4950-87c8-6f04057ecfa0",
+            "containerId": "",
+            "name": "06.- POST - productos",
+            "url": "http://localhost:9876/productos",
+            "method": "POST",
+            "sortNum": 60000,
+            "created": "2024-05-09T11:14:27.207Z",
+            "modified": "2024-05-09T11:14:27.207Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"codigo\":2,\n  \"marca\":\"dos_marcas\",\n  \"precio\":200\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "971ee7a2-c550-4156-8b52-381d0acbe20f",
+            "colId": "3e46b518-1431-4950-87c8-6f04057ecfa0",
+            "containerId": "",
+            "name": "07.- PUT - productos",
+            "url": "http://localhost:9876/productos",
+            "method": "PUT",
+            "sortNum": 70000,
+            "created": "2024-05-09T11:14:27.208Z",
+            "modified": "2024-05-09T11:14:27.208Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"codigo\":2,\n  \"marca\":\"dos_marcas_modificadas\",\n  \"precio\":202\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "9f64e782-074f-4aff-9f3b-85473c2ca455",
+            "colId": "3e46b518-1431-4950-87c8-6f04057ecfa0",
+            "containerId": "",
+            "name": "08.- DELETE - productos",
+            "url": "http://localhost:9876/productos",
+            "method": "DELETE",
+            "sortNum": 80000,
+            "created": "2024-05-09T11:14:27.209Z",
+            "modified": "2024-05-09T11:14:27.209Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"codigo\":2\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "0a7a5211-6d0e-47a1-acae-eeb41396e59e",
+            "colId": "3e46b518-1431-4950-87c8-6f04057ecfa0",
+            "containerId": "",
+            "name": "09.- GET - productos fotos",
+            "url": "http://localhost:9876/productos_fotos",
+            "method": "GET",
+            "sortNum": 90000,
+            "created": "2024-05-09T11:14:27.210Z",
+            "modified": "2024-05-09T11:14:27.210Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "420157e3-53fd-4a32-841a-4296d0e9ab5a",
+            "colId": "3e46b518-1431-4950-87c8-6f04057ecfa0",
+            "containerId": "",
+            "name": "10.- POST - productos fotos",
+            "url": "http://localhost:9876/productos_fotos",
+            "method": "POST",
+            "sortNum": 100000,
+            "created": "2024-05-09T11:14:27.211Z",
+            "modified": "2024-05-09T11:20:35.068Z",
+            "headers": [],
+            "body": {
+                "type": "formdata",
+                "raw": "",
+                "form": [
+                    {
+                        "name": "obj",
+                        "value": "{\"codigo\":2,\"marca\":\"marca_dos_con_foto\",\"precio\":200}"
+                    }
+                ],
+                "files": [
+                    {
+                        "name": "foto",
+                        "value": "c:\\Users\\maxin\\OneDrive\\Imágenes\\flor.jpg"
+                    }
+                ]
+            }
+        },
+        {
+            "_id": "410786c1-ed53-4fa4-986b-1a95e6a94401",
+            "colId": "3e46b518-1431-4950-87c8-6f04057ecfa0",
+            "containerId": "",
+            "name": "11.- PUT - productos fotos",
+            "url": "http://localhost:9876/productos_fotos",
+            "method": "PUT",
+            "sortNum": 110000,
+            "created": "2024-05-09T11:14:27.212Z",
+            "modified": "2024-05-09T11:21:12.533Z",
+            "headers": [],
+            "body": {
+                "type": "formdata",
+                "raw": "",
+                "form": [
+                    {
+                        "name": "obj",
+                        "value": "{\"codigo\":2,\"marca\":\"marca_dos_con_foto_modif\",\"precio\":202}"
+                    }
+                ],
+                "files": [
+                    {
+                        "name": "foto",
+                        "value": "c:\\Users\\maxin\\OneDrive\\Imágenes\\avion.jpg"
+                    }
+                ]
+            }
+        },
+        {
+            "_id": "78d608d6-77f9-4a3a-922e-96078f1d052b",
+            "colId": "3e46b518-1431-4950-87c8-6f04057ecfa0",
+            "containerId": "",
+            "name": "12.- DELETE - productos fotos",
+            "url": "http://localhost:9876/productos_fotos",
+            "method": "DELETE",
+            "sortNum": 120000,
+            "created": "2024-05-09T11:14:27.213Z",
+            "modified": "2024-05-09T11:14:27.213Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"codigo\":2\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "1ba46fda-f5bf-4db1-b32b-773411d4262c",
+            "colId": "3e46b518-1431-4950-87c8-6f04057ecfa0",
+            "containerId": "",
+            "name": "13.- bonus",
+            "url": "http://localhost:9876/test_fotos_multiples",
+            "method": "POST",
+            "sortNum": 130000,
+            "created": "2024-05-09T11:14:27.203Z",
+            "modified": "2024-05-09T11:23:08.943Z",
+            "headers": [],
+            "body": {
+                "type": "formdata",
+                "raw": "",
+                "form": [],
+                "files": [
+                    {
+                        "name": "fotos",
+                        "value": "c:\\Users\\maxin\\OneDrive\\Imágenes\\flor.jpg"
+                    },
+                    {
+                        "name": "fotos",
+                        "value": "c:\\Users\\maxin\\OneDrive\\Imágenes\\faro.jpg"
+                    },
+                    {
+                        "name": "fotos",
+                        "value": "c:\\Users\\maxin\\OneDrive\\Imágenes\\galaxia.jpg"
+                    }
+                ]
+            }
+        }
+    ],
+    "ref": "5bzp5tm_PsofpX6CXIyhu8xEILBtbVvZpMtzwY_zaPEl06VOMM3Du1mSB3uOG0QUyUfvTYmE6ZV9EYkFbJo5LA"
+}
