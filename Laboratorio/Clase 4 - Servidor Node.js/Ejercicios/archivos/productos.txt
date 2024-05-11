@@ -1,0 +1,1 @@
+{"codigo":2,"marca":"puma","precio":5000},

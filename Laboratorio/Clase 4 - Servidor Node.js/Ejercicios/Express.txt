@@ -16,3 +16,15 @@ En una carpeta vacía, escribir el comando:
 // Se ejecuta el archivo resultante de la transpilación usando 
 
 > node < archivo.js >
+
+// Apéndice (nodemon)
+* herramienta que ayuda a desarrollar aplicaciones basadas en Node.js
+* reiniciando automáticamente la aplicación cuando se detectan cambios en los archivos.
+* Para usar nodemon, reemplace la palabra node en la línea de comando al ejecutar su script.
+
+> npm install -g nodemon
+> npm install --save-dev nodemon
+
+// Se ejecuta el archivo con nodemon 
+
+> nodemon < archivo.js >
