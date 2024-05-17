@@ -9,7 +9,7 @@ class Ovni implements IParte2{
     public string $planetaOrigen; 
     public string $pathFoto; 
 
-    public function __construct($tipo = null, $velocidad = null, $planetaOrigen= null, $pathFoto = null)
+    public function __construct($tipo = "", $velocidad = 0, $planetaOrigen= "", $pathFoto = "")
     {
         $this->tipo = $tipo;
         $this->velocidad = $velocidad;
@@ -27,15 +27,9 @@ class Ovni implements IParte2{
         return json_encode($claseEstandar);
     }
 
-    /*/*Crear, en ./clases, la interface IParte2. Esta interface poseerá los métodos: 
-    ● Agregar: agrega, a partir de la instancia actual, un nuevo registro en la tabla ovnis (id, tipo, velocidad, 
-    planeta, foto), de la base de datos aliens_bd. Retorna true, si se pudo agregar, false, caso contrario. 
-    ● Traer: retorna un array de objetos de tipo Ovni, recuperados de la base de datos. 
-    ● ActivarVelocidadWarp: retorna la velocidad del ovni multiplicada por 10.45 JULES. 
-    ● Existe: retorna true, si la instancia actual está en el array de objetos de tipo Ovni que recibe como 
-    parámetro. Caso contrario retorna false.*/
-    public function Agregar()
-    {
+    // ● Agregar: agrega, a partir de la instancia actual, un nuevo registro en la tabla ovnis (id, tipo, velocidad, 
+    // planeta, foto), de la base de datos aliens_bd. Retorna true, si se pudo agregar, false, caso contrario. 
+    public function Agregar(){
         $retorno = false;
         // Nuevo PDO
         $db = AccesoDatos::DameUnObjetoAcceso();
@@ -54,7 +48,46 @@ class Ovni implements IParte2{
         if($consulta->rowCount()){
             $retorno = true;
         }
-
         return $retorno;
     }
+
+    // ● Traer: retorna un array de objetos de tipo Ovni, recuperados de la base de datos. 
+    public static function Traer(){
+        $db = AccesoDatos::DameUnObjetoAcceso();
+        $query = "SELECT tipo, velocidad, planeta AS planetaOrigen, foto AS pathFoto FROM ovnis";
+        $consulta = $db->RetornarConsulta($query);
+        $consulta->execute();
+        // $consulta->setFetchMode(PDO::FETCH_INTO, new Ovni);        
+        // $consulta->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'Ovni');
+        $listado = $consulta->fetchAll(PDO::FETCH_OBJ);
+        $listadoOvnis = array();
+        foreach ($listado as $item) {
+            $ovni = new Ovni($item->tipo, $item->velocidad, $item->planetaOrigen, $item->pathFoto);
+            array_push($listadoOvnis, $ovni);
+        }
+        // echo "<pre>";
+        // var_dump($listadoOvnis);
+        // echo "</pre>";
+        return $listadoOvnis;
+    }
+
+    // ● ActivarVelocidadWarp: retorna la velocidad del ovni multiplicada por 10.45 JULES. 
+    public function ActivarVelocidadWrap(){
+        return $this->velocidad * 10.45;
+    }
+
+    // ● Existe: retorna true, si la instancia actual está en el array de objetos de tipo Ovni que recibe como 
+    // parámetro. Caso contrario retorna false.*/
+    public function Existe($arrayOvnis){
+        $retorno = false;
+        foreach ($arrayOvnis as $item) {
+            if($item->ToJSON() === $this->ToJSON()){
+                $retorno = true;
+                break;
+            }
+        }
+        return $retorno;
+    }
+
+
 }

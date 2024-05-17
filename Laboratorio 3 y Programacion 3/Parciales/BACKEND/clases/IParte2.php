@@ -9,7 +9,7 @@ parámetro. Caso contrario retorna false.*/
 
 interface IParte2{
     public function Agregar();
-    // public function Traer();
-    // public function ActivarVelocidadWrap();
-    // public function Existe($arrayOvnis);
+    public static function Traer();
+    public function ActivarVelocidadWrap();
+    public function Existe($arrayOvnis);
 }

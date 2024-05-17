@@ -5,6 +5,7 @@ require_once("./config/database.php");
 
 $db = AccesoDatos::DameUnObjetoAcceso();
 
-$ovni = new Ovni("Volador", 150, "melmak", "1.jpg");
+// $ovni = new Ovni("Volador", 150, "melmak", "1.jpg");
+// $ovni->Agregar();
 
-$ovni->Agregar();
+Ovni::Traer();

@@ -1,0 +1,365 @@
+{
+    "clientName": "Thunder Client",
+    "collectionName": "PDO_2024",
+    "collectionId": "35fc2f3a-9b03-497d-bacc-66fd25b322c5",
+    "dateExported": "2024-05-13T12:35:03.680Z",
+    "version": "1.2",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "6edab483-c973-406d-81a1-182d6aeb2eb3",
+            "colId": "35fc2f3a-9b03-497d-bacc-66fd25b322c5",
+            "containerId": "",
+            "name": "01-Conexión Basica",
+            "url": "http://localhost/prog_3/clase05/pdo/administracion.php",
+            "method": "POST",
+            "sortNum": 10000,
+            "created": "2024-05-11T14:02:43.874Z",
+            "modified": "2024-05-11T14:02:43.874Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "formdata",
+                "raw": "",
+                "form": [
+                    {
+                        "name": "queMuestro",
+                        "value": "conexionBasica"
+                    }
+                ]
+            },
+            "tests": []
+        },
+        {
+            "_id": "1d117e44-90d5-451d-9a0f-7aaf937644ae",
+            "colId": "35fc2f3a-9b03-497d-bacc-66fd25b322c5",
+            "containerId": "",
+            "name": "02_Conexión",
+            "url": "http://localhost/prog_3/clase05/pdo/administracion.php",
+            "method": "POST",
+            "sortNum": 20000,
+            "created": "2024-05-11T14:02:43.875Z",
+            "modified": "2024-05-11T14:02:43.875Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "formdata",
+                "raw": "",
+                "form": [
+                    {
+                        "name": "queMuestro",
+                        "value": "conexion"
+                    }
+                ]
+            },
+            "tests": []
+        },
+        {
+            "_id": "0c8d9d2e-6204-4aec-8973-08cccfcc442b",
+            "colId": "35fc2f3a-9b03-497d-bacc-66fd25b322c5",
+            "containerId": "",
+            "name": "03_fetchAll",
+            "url": "http://localhost/prog_3/clase05/pdo/administracion.php",
+            "method": "POST",
+            "sortNum": 30000,
+            "created": "2024-05-11T14:02:43.876Z",
+            "modified": "2024-05-11T14:02:43.876Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "formdata",
+                "raw": "",
+                "form": [
+                    {
+                        "name": "queMuestro",
+                        "value": "query_fetchAll"
+                    }
+                ]
+            },
+            "tests": []
+        },
+        {
+            "_id": "9a94f3a1-4783-45ee-9abd-8dfbfc9a791e",
+            "colId": "35fc2f3a-9b03-497d-bacc-66fd25b322c5",
+            "containerId": "",
+            "name": "04_fecthObject",
+            "url": "http://localhost/prog_3/clase05/pdo/administracion.php",
+            "method": "POST",
+            "sortNum": 40000,
+            "created": "2024-05-11T14:02:43.877Z",
+            "modified": "2024-05-11T14:02:43.877Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "formdata",
+                "raw": "",
+                "form": [
+                    {
+                        "name": "queMuestro",
+                        "value": "query_fetchOject"
+                    }
+                ]
+            },
+            "tests": []
+        },
+        {
+            "_id": "dcdc355d-9ef6-4f0e-a455-7cae7885decd",
+            "colId": "35fc2f3a-9b03-497d-bacc-66fd25b322c5",
+            "containerId": "",
+            "name": "05_prepare",
+            "url": "http://localhost/prog_3/clase05/pdo/administracion.php",
+            "method": "POST",
+            "sortNum": 50000,
+            "created": "2024-05-11T14:02:43.878Z",
+            "modified": "2024-05-11T14:02:43.878Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "formdata",
+                "raw": "",
+                "form": [
+                    {
+                        "name": "queMuestro",
+                        "value": "prepare"
+                    }
+                ]
+            },
+            "tests": []
+        },
+        {
+            "_id": "df2c6a70-adff-42a1-b032-72894e010c82",
+            "colId": "35fc2f3a-9b03-497d-bacc-66fd25b322c5",
+            "containerId": "",
+            "name": "06_prepare con parametro",
+            "url": "http://localhost/prog_3/clase05/pdo/administracion.php",
+            "method": "POST",
+            "sortNum": 60000,
+            "created": "2024-05-11T14:02:43.879Z",
+            "modified": "2024-05-11T14:02:43.879Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "formdata",
+                "raw": "",
+                "form": [
+                    {
+                        "name": "queMuestro",
+                        "value": "bindParam"
+                    },
+                    {
+                        "name": "id",
+                        "value": "5"
+                    }
+                ]
+            },
+            "tests": []
+        },
+        {
+            "_id": "8ce1f080-c6bd-41d8-9641-e8167ae12c2d",
+            "colId": "35fc2f3a-9b03-497d-bacc-66fd25b322c5",
+            "containerId": "",
+            "name": "07_prepare con bindParam",
+            "url": "http://localhost/prog_3/clase05/pdo/administracion.php",
+            "method": "POST",
+            "sortNum": 70000,
+            "created": "2024-05-11T14:02:43.880Z",
+            "modified": "2024-05-11T14:02:43.880Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "formdata",
+                "raw": "",
+                "form": [
+                    {
+                        "name": "queMuestro",
+                        "value": "bindParam"
+                    },
+                    {
+                        "name": "id",
+                        "value": "4"
+                    }
+                ]
+            },
+            "tests": []
+        },
+        {
+            "_id": "bf3fc3a8-dcc1-401e-9af1-c196df5fbc52",
+            "colId": "35fc2f3a-9b03-497d-bacc-66fd25b322c5",
+            "containerId": "",
+            "name": "08_prepare con bindValue",
+            "url": "http://localhost/prog_3/clase05/pdo/administracion.php",
+            "method": "POST",
+            "sortNum": 80000,
+            "created": "2024-05-11T14:02:43.881Z",
+            "modified": "2024-05-11T14:02:43.881Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "formdata",
+                "raw": "",
+                "form": [
+                    {
+                        "name": "queMuestro",
+                        "value": "bindValue"
+                    },
+                    {
+                        "name": "id",
+                        "value": "1"
+                    }
+                ]
+            },
+            "tests": []
+        },
+        {
+            "_id": "a4964555-234e-4945-afa9-1075579d935a",
+            "colId": "35fc2f3a-9b03-497d-bacc-66fd25b322c5",
+            "containerId": "",
+            "name": "09_prepare con bindColumn",
+            "url": "http://localhost/prog_3/clase05/pdo/administracion.php",
+            "method": "POST",
+            "sortNum": 90000,
+            "created": "2024-05-11T14:02:43.882Z",
+            "modified": "2024-05-11T14:02:43.882Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "formdata",
+                "raw": "",
+                "form": [
+                    {
+                        "name": "queMuestro",
+                        "value": "bindColumn"
+                    },
+                    {
+                        "name": "id",
+                        "value": "1"
+                    }
+                ]
+            },
+            "tests": []
+        },
+        {
+            "_id": "ff45419d-cf86-4f60-b7e3-640e56dac63d",
+            "colId": "35fc2f3a-9b03-497d-bacc-66fd25b322c5",
+            "containerId": "",
+            "name": "10_fetchLazy",
+            "url": "http://localhost/prog_3/clase05/pdo/administracion.php",
+            "method": "POST",
+            "sortNum": 100000,
+            "created": "2024-05-11T14:02:43.883Z",
+            "modified": "2024-05-11T14:02:43.883Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "formdata",
+                "raw": "",
+                "form": [
+                    {
+                        "name": "queMuestro",
+                        "value": "fetch_lazy"
+                    }
+                ]
+            },
+            "tests": []
+        },
+        {
+            "_id": "a7200bca-2ccb-423a-a0e0-ec50322d9264",
+            "colId": "35fc2f3a-9b03-497d-bacc-66fd25b322c5",
+            "containerId": "",
+            "name": "11_fetchInto",
+            "url": "http://localhost/prog_3/clase05/pdo/administracion.php",
+            "method": "POST",
+            "sortNum": 110000,
+            "created": "2024-05-11T14:02:43.884Z",
+            "modified": "2024-05-11T14:02:43.884Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "formdata",
+                "raw": "",
+                "form": [
+                    {
+                        "name": "queMuestro",
+                        "value": "fetch_into"
+                    }
+                ]
+            },
+            "tests": []
+        },
+        {
+            "_id": "3e6b345c-7dde-4759-bd54-8c5487db1088",
+            "colId": "35fc2f3a-9b03-497d-bacc-66fd25b322c5",
+            "containerId": "",
+            "name": "12_POO",
+            "url": "http://localhost/prog_3/clase05/POO/nexo.php",
+            "method": "POST",
+            "sortNum": 120000,
+            "created": "2024-05-11T14:02:43.885Z",
+            "modified": "2024-05-11T14:02:43.885Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "formdata",
+                "raw": "",
+                "form": [
+                    {
+                        "name": "op",
+                        "value": "accesoDatos",
+                        "isDisabled": true
+                    },
+                    {
+                        "name": "op",
+                        "value": "mostrarTodos"
+                    },
+                    {
+                        "name": "op",
+                        "value": "insertarCd",
+                        "isDisabled": true
+                    },
+                    {
+                        "name": "op",
+                        "value": "modificarCd",
+                        "isDisabled": true
+                    },
+                    {
+                        "name": "id",
+                        "value": "66",
+                        "isDisabled": true
+                    },
+                    {
+                        "name": "titulo",
+                        "value": "Modificado",
+                        "isDisabled": true
+                    },
+                    {
+                        "name": "anio",
+                        "value": "2023",
+                        "isDisabled": true
+                    },
+                    {
+                        "name": "interprete",
+                        "value": "otro interprete",
+                        "isDisabled": true
+                    },
+                    {
+                        "name": "op",
+                        "value": "modificarCd_json",
+                        "isDisabled": true
+                    },
+                    {
+                        "name": "obj_json",
+                        "value": "{\"id\":66, \"titulo\":\"título modficado otra vez\", \"anio\":1901,\"interprete\":\"ya modificado\"}",
+                        "isDisabled": true
+                    },
+                    {
+                        "name": "op",
+                        "value": "eliminarCd",
+                        "isDisabled": true
+                    }
+                ]
+            },
+            "tests": []
+        }
+    ],
+    "ref": "DGBU1imUVP4vc24fbvfXSkjx8eKoFECYC3IAn6ep3WrxmRPygM-WFYCk8uGdb0tZ3bG06TJL1ho9Kp6-vxGZaA"
+}
