@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+<head>
+	<title>Ejemplos Fetch</title>
+	  
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		
+        <link href="./img/utnLogo.png" rel="icon" type="image/png" />
+
+		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="css/animacion.css">		
+		
+		<!-- Estilos propios -->
+		<link rel="stylesheet" type="text/css" href="css/estilo.css">
+
+		<!-- Funciones Propias -->
+		<script src="./ajax.js"></script>
+		<script src="./manejadora.js"></script>
+		<script src="./manejadoraAjaxJSON.js"></script>
+
+</head>
+<body>
+	<div class="container">
+		<div class="page-header">
+			<h1>Fetch</h1>      
+		</div>
+		<div class="CajaInicio animated bounceInRight">
+			<h1>Ejemplos Fetch</h1>
+				<a href="#" class="list-group-item list-group-item list-group-item-info" >
+					<h4 class="list-group-item-heading">Fetch</h4>
+					<p class="list-group-item-text" onclick="Test.Fetch()">Primer Fetch</p>
+					<p class="list-group-item-text" onclick="Test.FetchCompleto()">Fetch completo</p>
+					<p class="list-group-item-text" onclick="Test.CabecerasFetchGET()">Pasar par&aacute;metros por GET</p>
+					<p class="list-group-item-text" onclick="Test.CabecerasFetchPOST()">Pasar par&aacute;metros por POST</p>
+					<p class="list-group-item-text" onclick="Test.EnviarRecibirJSON()">Enviar/Recibir JSON</p>
+				</a>
+			<h1>Fetch y API</h1>
+					<a href="#" class="list-group-item list-group-item list-group-item-info">
+						<h4 class="list-group-item-heading">API externa</h4>
+						<p class="list-group-item-text" onclick="Test.IrHacia('apiFetch.html')">Ejemplo con api simple</p>
+					</a>
+					<a href="#" class="list-group-item list-group-item list-group-item-info">
+						<h4 class="list-group-item-heading">API externa compuesta</h4>
+						<p class="list-group-item-text" onclick="Test.IrHacia('apiFetchCompuesta.html')">Ejemplo con api compuesta</p>
+					</a>
+			<h1>Async/Await y API</h1>
+					<a href="#" class="list-group-item list-group-item list-group-item-info">
+						<h4 class="list-group-item-heading">API externa</h4>
+						<p class="list-group-item-text" onclick="Test.IrHacia('apiAsyncAwait.html')">Ejemplo con api simple</p>
+					</a>					
+					<a href="#" class="list-group-item list-group-item list-group-item-info">
+						<h4 class="list-group-item-heading">API externa compuesta</h4>
+						<p class="list-group-item-text" onclick="Test.IrHacia('apiAsyncAwaitCompuesta.html')">Ejemplo con api compuesta</p>
+					</a>					
+		</div>
+		<div id="divResultado" class="CajaInicio"></div>		
+		<div id="divGif" style="display:block;position:absolute" ><img id="imgGif" src="" /></div>
+	</div>
+</body>
+</html>

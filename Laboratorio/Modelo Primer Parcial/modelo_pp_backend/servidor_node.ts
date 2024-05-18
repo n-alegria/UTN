@@ -59,13 +59,13 @@ const upload = multer({
 });
 
 //AGREGO MYSQL y EXPRESS-MYCONNECTION
-const mysql = require('mysql');
+const mysql = require('mysql2'); // Importa mysql2 en lugar de mysql
 const myconn = require('express-myconnection');
 const db_options = {
     host: 'localhost',
     port: 3306,
     user: 'root',
-    password: '',
+    password: 'ARnal2592?',
     database: 'usuarios_test'
 };
 
@@ -87,7 +87,7 @@ app.use(body_parser.json());
 app.get('/usuarioJSON', (request:any, response:any)=>{
 
     fs.readFile(path_archivo, "UTF-8", (err:any, archivo:any)=>{
-
+        console.log(2);
         let user_array = Array();
         let obj : any = {};
 
@@ -122,8 +122,8 @@ app.get('/usuarioJSON', (request:any, response:any)=>{
 app.post('/usuarioJSON', (request:any, response:any)=>{
 
     let obj : any = {};
-    let params = JSON.parse(JSON.stringify(request.body));
-    
+    let params = request.body;
+    console.log(request.body);
     let nombre : string = params.nombre;
     let correo : string = params.correo;
     let clave : string = params.clave;

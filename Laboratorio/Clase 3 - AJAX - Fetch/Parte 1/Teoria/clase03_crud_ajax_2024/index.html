@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD - AJAX</title>
+
+    <!-- bootstrap 4 -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+
+    <script type="text/javascript" src="./funciones.js"></script>
+
+</head>
+<body>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-6">
+            <table class="table table-light">
+                <thead class="thead-dark">
+                    <tr>
+                        <th colspan="2">ALTA - ELEMENTOS - AJAX</th>
+                    </tr>
+                <tbody>
+                    <tr>
+                        <td>CLAVE</td>
+                        <td><input type="number" name="" id="clave"></td>
+                    </tr>
+                    <tr>
+                        <td>VALOR UNO</td>
+                        <td><input type="text" name="" id="valor_uno"></td>
+                    </tr>
+                    <tr>
+                        <td>VALOR DOS</td>
+                        <td><input type="text" name="" id="valor_dos"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"><button type="submit" onclick="Agregar()">Agregar</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-6">
+            <table class="table table-light">
+                <thead class="thead-light">
+                    <tr>
+                        <th>LISTAR - ELEMENTOS - AJAX</th>
+                    </tr>
+                <tbody>
+                    <tr>
+                        <td><button type="submit" onclick="Listar()">Listar</button></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <fieldset >
+                                <legend >Listado de elementos</legend>
+                                <div id="divListado">
+
+                                </div>
+                            </fieldset>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6">
+            <table class="table table-light">
+                <thead class="thead-light">
+                    <tr>
+                        <th colspan="2">MODIFICACIÓN - ELEMENTOS - AJAX</th>
+                    </tr>
+                <tbody>
+                    <tr>
+                        <td>CLAVE</td>
+                        <td><input type="number" name="" id="clave_m" ></td>
+                    </tr>
+                    <tr>
+                        <td>VALOR UNO</td>
+                        <td><input type="text" name="" id="valor_uno_m"></td>
+                    </tr>
+                    <tr>
+                        <td>VALOR DOS</td>
+                        <td><input type="text" name="" id="valor_dos_m"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"><button type="submit" onclick="Modificar()">Modificar</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-6">
+            <table class="table table-light">
+                <thead class="thead-dark">
+                    <tr>
+                        <th colspan="2">BORRAR - ELEMENTOS - AJAX</th>
+                    </tr>
+                <tbody>
+                    <tr>
+                        <td>CLAVE</td>
+                        <td><input type="number" name="" id="clave_b" ></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"><button type="submit" onclick="Borrar()">Borrar</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>  
+</div>
+</body>
+</html>
