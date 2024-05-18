@@ -1,5 +1,4 @@
 <?php
-
 $op = isset($_POST["op"]) ? $_POST["op"] : null;
 
 sleep(2);

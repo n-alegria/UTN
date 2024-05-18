@@ -5,7 +5,7 @@ mostrarla en un tag img, utilizando ASYNC - AWAIT
 
 */
 
-const url : string = "http://localhost/lab_3/async_await_subir_fotos/BACKEND/nexo.php";
+const url : string = "http://localhost:3000/nexo.php";
 
 const handleFetch = async (url:RequestInfo, options:RequestInit):Promise<Response> => {
 
@@ -24,8 +24,8 @@ const handleError = (res:Response):Response => {
     return res;
 };
 
-async function SubirFoto() {
-    
+async function SubirFoto(event:any) {
+    event.preventDefault();
     //MUESTRO EL SPINNER
     AdministrarGif(true);
 
