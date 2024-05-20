@@ -111,7 +111,7 @@ switch ($queMuestro) {
       
         try {
 
-            $db = new PDO('mysql:host=localhost;dbname=cdcol;charset=utf8', USUARIO, CLAVE);
+            $db = new PDO('mysql:host=localhost;dbname=cdcol;charset=utf8;port=3310', USUARIO, CLAVE);
             $obj->Mensaje = "FETCHOBJECT";
 
             $sql = $db->query('SELECT titel AS titulo, interpret AS interprete, jahr AS anio FROM cds');

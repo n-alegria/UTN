@@ -12,7 +12,7 @@ switch ($op) {
         $obj_rta->exito = false;
         $obj_rta->path = "";
 
-        $destino = "./fotos/" . date("Ymd_His") . ".jpg";
+        $destino = "fotos/" . date("Ymd_His") . ".jpg";
         
         if(move_uploaded_file($_FILES["foto"]["tmp_name"], $destino) ){
             $obj_rta->exito = true;

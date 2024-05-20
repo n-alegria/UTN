@@ -1,0 +1,384 @@
+{
+	"info": {
+		"_postman_id": "b6597ca1-d8fc-4494-a1d1-2d33047e6d35",
+		"name": "2024-modelo_pp-prog_3",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "1748864",
+		"_collection_link": "https://www.postman.com/maxineiner/workspace/2024/collection/1748864-b6597ca1-d8fc-4494-a1d1-2d33047e6d35?action=share&source=collection_link&creator=1748864"
+	},
+	"item": [
+		{
+			"name": "02.- ListadoUsuariosJSON",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/modelo_pp/backend/ListadoUsuariosJSON.php",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"modelo_pp",
+						"backend",
+						"ListadoUsuariosJSON.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "01.- AlataUsuarioJSON",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "correo",
+							"value": "nuevo@correo.com",
+							"type": "text"
+						},
+						{
+							"key": "clave",
+							"value": "123",
+							"type": "text"
+						},
+						{
+							"key": "nombre",
+							"value": "nombre_nuevo",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost/modelo_pp/backend/AltaUsuarioJSON.php",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"modelo_pp",
+						"backend",
+						"AltaUsuarioJSON.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "03.- VerificarUsuarioJSON",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "usuario_json",
+							"value": "{\"correo\": \"nuevo@correo.com\", \"clave\": 123}",
+							"type": "text"
+						},
+						{
+							"key": "usuario_json",
+							"value": "{\"correo\": \"no@existe.com\", \"clave\": 123}",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost/modelo_pp/backend/VerificarUsuarioJSON.php",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"modelo_pp",
+						"backend",
+						"VerificarUsuarioJSON.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "04.- AltaUsuario",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "correo",
+							"value": "nuevo@correo.com.ar",
+							"type": "text"
+						},
+						{
+							"key": "clave",
+							"value": "123456",
+							"type": "text"
+						},
+						{
+							"key": "nombre",
+							"value": "nombre_nuevo_bd",
+							"type": "text"
+						},
+						{
+							"key": "id_perfil",
+							"value": "1",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost/modelo_pp/backend/AltaUsuario.php",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"modelo_pp",
+						"backend",
+						"AltaUsuario.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "05.- Listado Usuarios",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/modelo_pp/backend/ListadoUsuarios.php",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"modelo_pp",
+						"backend",
+						"ListadoUsuarios.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "06.- Modificar Usuario",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "usuario_json",
+							"value": "{\"id\": 8, \"nombre\": \"nombre_bd_modif\", \"correo\": \"modif@correo.com.ar\", \"clave\": 123, \"id_perfil\": 2}",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost/modelo_pp/backend/ModificarUsuario.php",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"modelo_pp",
+						"backend",
+						"ModificarUsuario.php"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "07.- Eliminar Usuario",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "id",
+							"value": "8",
+							"type": "text"
+						},
+						{
+							"key": "accion",
+							"value": "borrar",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost/modelo_pp/backend/EliminarUsuario.php",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"modelo_pp",
+						"backend",
+						"EliminarUsuario.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "08.- Alta Empleado",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "nombre",
+							"value": "nuevo_empleado",
+							"type": "text"
+						},
+						{
+							"key": "correo",
+							"value": "nuevo@empleado.com",
+							"type": "text"
+						},
+						{
+							"key": "clave",
+							"value": "123654",
+							"type": "text"
+						},
+						{
+							"key": "id_perfil",
+							"value": "2",
+							"type": "text"
+						},
+						{
+							"key": "sueldo",
+							"value": "588",
+							"type": "text"
+						},
+						{
+							"key": "foto",
+							"type": "file",
+							"src": "C:\\Users\\maxin\\OneDrive\\Imágenes\\a.jpg"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost/modelo_pp/backend/AltaEmpleado.php",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"modelo_pp",
+						"backend",
+						"AltaEmpleado.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "09.- Listado Empleados",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/modelo_pp/backend/ListadoEmpleados.php",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"modelo_pp",
+						"backend",
+						"ListadoEmpleados.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "10.- Modificar Empleado",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "empleado_json",
+							"value": "{\"id\": 3, \"nombre\": \"nombre_bd_modif\", \"correo\": \"modif@correo.com.ar\", \"clave\": 123, \"id_perfil\": 3, \"sueldo\": 666}",
+							"type": "text"
+						},
+						{
+							"key": "foto",
+							"type": "file",
+							"src": "C:\\Users\\maxin\\OneDrive\\Imágenes\\b.jpg"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost/modelo_pp/backend/ModificarEmpleado.php",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"modelo_pp",
+						"backend",
+						"ModificarEmpleado.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "11.- Eliminar Empleado",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "id",
+							"value": "3",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost/modelo_pp/backend/EliminarEmpleado.php",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"modelo_pp",
+						"backend",
+						"EliminarEmpleado.php"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

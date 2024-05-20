@@ -80,7 +80,7 @@ function AdministrarGif(mostrar : boolean) : void
         div.style.display = "block";
         div.style.top = "45%";
         div.style.left = "45%"
-        img.src = "./img/Earth_animated.gif";
+        img.src = "./img/1486.gif";
     }
     else
     {

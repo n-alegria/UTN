@@ -49,7 +49,6 @@ switch ($accion) {
 		break;
 
 	case 'borrar':
-
 		if(Elemento::borrar($clave))
 		{
             $obj_resp->exito = true;

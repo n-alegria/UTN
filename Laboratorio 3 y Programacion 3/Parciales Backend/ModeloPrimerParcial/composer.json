@@ -1,0 +1,15 @@
+{
+    "name": "lautaro/alegria",
+    "autoload": {
+        "psr-4": {
+            "Lautaro\\Alegria\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Nestor",
+            "email": "n.alegria@outlook.com"
+        }
+    ],
+    "require": {}
+}
