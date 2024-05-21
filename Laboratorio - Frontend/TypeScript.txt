@@ -1,2 +1,2 @@
 import para modulos ( clases, funciones, variables ), no lleva la extension .ts
-reference para hacer vsible un namespace en otro archivo, lleva la extension .ts
+reference para hacer visible un namespace en otro archivo, lleva la extension .ts
