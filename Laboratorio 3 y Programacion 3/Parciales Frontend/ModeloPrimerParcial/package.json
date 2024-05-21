@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "2024-servidor_node.js": "file:modelo_pp_backend",
+    "modelo_pp_frontend": "file:modelo_pp_frontend"
+  }
+}
