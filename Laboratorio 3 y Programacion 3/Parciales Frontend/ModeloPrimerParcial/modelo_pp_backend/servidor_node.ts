@@ -63,7 +63,7 @@ const mysql = require('mysql');
 const myconn = require('express-myconnection');
 const db_options = {
     host: 'localhost',
-    port: 3306,
+    port: 3307,
     user: 'root',
     password: '',
     database: 'usuarios_test'
