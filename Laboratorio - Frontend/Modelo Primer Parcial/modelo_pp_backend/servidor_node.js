@@ -8,7 +8,7 @@ app.use(cors());
 app.use(express.static("public"));
 const fs = require('fs');
 app.use(express.json());
-const path_archivo = "./archivos/usuarios.json";
+const path_archivo = "./modelo_pp_backend/archivos/usuarios.json";
 const multer = require('multer');
 const mime = require('mime-types');
 const storage = multer.diskStorage({
@@ -17,13 +17,13 @@ const storage = multer.diskStorage({
 const upload = multer({
     storage: storage
 });
-const mysql = require('mysql2');
+const mysql = require('mysql');
 const myconn = require('express-myconnection');
 const db_options = {
     host: 'localhost',
-    port: 3306,
+    port: 3307,
     user: 'root',
-    password: 'ARnal2592?',
+    password: '',
     database: 'usuarios_test'
 };
 app.use(myconn(mysql, db_options, 'single'));
@@ -32,7 +32,6 @@ app.use(body_parser.urlencoded({ extended: false }));
 app.use(body_parser.json());
 app.get('/usuarioJSON', (request, response) => {
     fs.readFile(path_archivo, "UTF-8", (err, archivo) => {
-        console.log(2);
         let user_array = Array();
         let obj = {};
         if (!err) {
@@ -57,7 +56,6 @@ app.get('/usuarioJSON', (request, response) => {
 app.post('/usuarioJSON', (request, response) => {
     let obj = {};
     let params = request.body;
-    console.log(request.body);
     let nombre = params.nombre;
     let correo = params.correo;
     let clave = params.clave;

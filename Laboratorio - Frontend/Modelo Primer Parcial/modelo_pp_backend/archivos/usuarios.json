@@ -3,15 +3,8 @@
 {"nombre" : "juan carlos", "correo" : "juan@carlos.com", "clave" : "123"}
 {"nombre" : "anibal", "correo" : "anibal@mail.com", "clave" : "qwer"}
 {"nombre" : "pepe", "correo" : "pepe@mail.com.ar", "clave" : "clave"}
-{"nombre":"undefined", "correo":"undefined", "clave":"undefined"}
-{"nombre":"undefined", "correo":"undefined", "clave":"undefined"}
-{"nombre":"undefined", "correo":"undefined", "clave":"undefined"}
-{"nombre":"undefined", "correo":"undefined", "clave":"undefined"}
-{"nombre":"undefined", "correo":"undefined", "clave":"undefined"}
-{"nombre":"undefined", "correo":"undefined", "clave":"undefined"}
-{"nombre":"undefined", "correo":"undefined", "clave":"undefined"}
-{"nombre":"juan", "correo":"a@q.com", "clave":"123q"}
-{"nombre":"undefined", "correo":"undefined", "clave":"undefined"}
-{"nombre":"D", "correo":"D", "clave":"d"}
-{"nombre":"undefined", "correo":"undefined", "clave":"undefined"}
-{"nombre":"a", "correo":"a", "clave":"a"}
+{"nombre":"nestor", "correo":"nestor@correo.com", "clave":"s"}
+{"nombre":"nestor", "correo":"nestor@correo.com", "clave":"root"}
+{"nombre":"lautaro", "correo":"lautaro@correo.com", "clave":"heladera"}
+{"nombre":"jose", "correo":"jose@correo.com", "clave":"correo"}
+{"nombre":"", "correo":"", "clave":""}

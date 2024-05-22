@@ -8,7 +8,7 @@ app.use(cors());
 app.use(express.static("public"));
 const fs = require('fs');
 app.use(express.json());
-const path_archivo = "./modelo_pp_backend/archivos/usuarios.json";
+const path_archivo = "./archivos/usuarios.json";
 const multer = require('multer');
 const mime = require('mime-types');
 const storage = multer.diskStorage({

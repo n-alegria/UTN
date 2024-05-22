@@ -39,7 +39,7 @@ const fs = require('fs');
 app.use(express.json());
 
 //INDICO RUTA HACIA EL ARCHIVO
-const path_archivo = "./archivos/usuarios.json";
+const path_archivo = "./modelo_pp_backend/archivos/usuarios.json";
 
 //AGREGO MULTER
 const multer = require('multer');
@@ -59,13 +59,13 @@ const upload = multer({
 });
 
 //AGREGO MYSQL y EXPRESS-MYCONNECTION
-const mysql = require('mysql2'); // Importa mysql2 en lugar de mysql
+const mysql = require('mysql');
 const myconn = require('express-myconnection');
 const db_options = {
     host: 'localhost',
-    port: 3306,
+    port: 3307,
     user: 'root',
-    password: 'ARnal2592?',
+    password: '',
     database: 'usuarios_test'
 };
 
@@ -87,7 +87,7 @@ app.use(body_parser.json());
 app.get('/usuarioJSON', (request:any, response:any)=>{
 
     fs.readFile(path_archivo, "UTF-8", (err:any, archivo:any)=>{
-        console.log(2);
+
         let user_array = Array();
         let obj : any = {};
 
@@ -123,7 +123,7 @@ app.post('/usuarioJSON', (request:any, response:any)=>{
 
     let obj : any = {};
     let params = request.body;
-    console.log(request.body);
+
     let nombre : string = params.nombre;
     let correo : string = params.correo;
     let clave : string = params.clave;

@@ -39,7 +39,7 @@ const fs = require('fs');
 app.use(express.json());
 
 //INDICO RUTA HACIA EL ARCHIVO
-const path_archivo = "./modelo_pp_backend/archivos/usuarios.json";
+const path_archivo = "./archivos/usuarios.json";
 
 //AGREGO MULTER
 const multer = require('multer');
