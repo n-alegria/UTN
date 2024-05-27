@@ -1,10 +1,21 @@
 <?php
-/*ModificarEmpleado.php: Se recibirán por POST los siguientes valores: empleado_json (id, nombre, correo,
-clave, id_perfil, sueldo y pathFoto, en formato de cadena JSON) y foto (para modificar un empleado en la base
-de datos. Invocar al método Modificar.
-Nota: El valor del id, será el id del empleado 'original', mientras que el resto de los valores serán los del
-empleado modificado.
-Se retornará un JSON que contendrá: éxito(bool) y mensaje(string) indicando lo acontecido.*/
+
+/* EliminarUsuario.php: Si recibe el parámetro id por POST, más el parámetro accion con valor "borrar", se
+deberá borrar el usuario (invocando al método Eliminar).
+Retornar un JSON que contendrá: éxito(bool) y mensaje(string) indicando lo acontecido.*/
+
 require_once("./clases/Usuario.php");
 
-$empleado_json = $_POST["empleado_json"] ?? null;
+$id = $_POST["id"] ?? null;
+
+if($id !== null){
+    $retorno = new stdClass();
+    $retorno->exito = false;
+    $retorno->mensaje = "No fue posible eliminar al usuario";
+    $retornoEliminar = Usuario::Eliminar($id);
+    if($retornoEliminar){
+        $retorno->exito = true;
+        $retorno->mensaje = "Usuario eliminado con exito";
+    }
+    echo json_encode($retorno);
+}

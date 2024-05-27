@@ -1,4 +1,4 @@
-import { Console } from "console";
+import { Console, log } from "console";
 
 const express = require('express');
 
@@ -63,7 +63,7 @@ const mysql = require('mysql');
 const myconn = require('express-myconnection');
 const db_options = {
     host: 'localhost',
-    port: 3307,
+    port: 3310,
     user: 'root',
     password: '',
     database: 'usuarios_test'

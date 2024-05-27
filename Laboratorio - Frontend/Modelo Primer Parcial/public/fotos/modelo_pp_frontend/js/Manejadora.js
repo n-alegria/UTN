@@ -297,4 +297,31 @@ var ModeloParcial;
     }
     ModeloParcial.Manejadora = Manejadora;
 })(ModeloParcial || (ModeloParcial = {}));
+document.addEventListener("DOMContentLoaded", () => {
+    Modelo.ManejadoraEmpleados.MostrarEmpleados();
+});
+var Modelo;
+(function (Modelo) {
+    class ManejadoraEmpleados {
+        static MostrarEmpleados() {
+            const url = "http://localhost:2024/empleadoBD";
+            const opciones = {
+                method: "GET",
+                headers: { "content-type": "application/json" }
+            };
+            try {
+                (() => __awaiter(this, void 0, void 0, function* () {
+                    const respuesta = yield fetch(url, opciones);
+                    const objJson = yield respuesta.json();
+                    console.log(objJson.mensaje);
+                    alert(objJson.mensaje);
+                }))();
+            }
+            catch (err) {
+                console.log(err);
+            }
+        }
+    }
+    Modelo.ManejadoraEmpleados = ManejadoraEmpleados;
+})(Modelo || (Modelo = {}));
 //# sourceMappingURL=Manejadora.js.map

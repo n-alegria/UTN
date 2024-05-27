@@ -1,0 +1,17 @@
+{
+  "name": "modelo_pp_frontend",
+  "version": "1.0.0",
+  "description": "modelo pp lab 3",
+  "main": "index.js",
+  "scripts": {
+    "manejadoraEmpleado": "tsc --outFile ./js/ManejadoraEmpleados.js ./clases/Persona.ts ./clases/Usuario.ts ./clases/Empleado.ts ./clases/ManejadoraEmpleados.ts --target es6 --watch",
+    "manejadora": "tsc --outFile ./js/Manejadoras.js ./clases/Persona.ts ./clases/Usuario.ts ./clases/Empleado.ts ./clases/Manejadora.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/jquery": "^3.3.38",
+    "sweetalert2": "^11.11.0"
+  }
+}
