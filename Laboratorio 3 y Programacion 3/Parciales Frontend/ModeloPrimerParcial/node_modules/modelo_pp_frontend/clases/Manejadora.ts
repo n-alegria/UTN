@@ -55,7 +55,6 @@ namespace ModeloParcial{
                     const respuesta = await fetch(url, opciones);
                     const obj = await respuesta.json();
                     if(obj.exito){
-                        divTabla.textContent = "";
                         const listadoUsuarios = obj.usuarios;
                         let tabla:string = `<table>
                                                 <thead>
@@ -74,7 +73,7 @@ namespace ModeloParcial{
                                     </tr>`;
                         });
                         tabla += `</tbody>`;
-                        divTabla.innerHTML = tabla;
+                        (<HTMLDivElement>document.querySelector("#divTabla")).innerHTML = tabla;
                     }
                 })();
             }catch(error){ console.log(error) };
