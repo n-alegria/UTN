@@ -13,7 +13,8 @@ const averiguarIdPaisSimple = async (nombre:any) =>
         const res = await handleFetch(url);
 
         const resJSON = await res.json();
-
+        console.log(resJSON);
+        
         let paisMasProb = resJSON.country.reduce((a:any, b:any) => 
         {
             return a.probability > b.probability ? a : b;

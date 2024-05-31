@@ -12,6 +12,8 @@ const averiguarIdPaisFetch = (nombre:any) =>
     handleFetchSimple(url)
         .then(res => res.json())
         .then(resJSON => {
+            console.log(resJSON);
+            
 
             let paisMasProb = resJSON.country.reduce((a:any, b:any) => 
             {

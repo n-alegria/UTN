@@ -8,11 +8,14 @@ window.onload = () => {
 const averiguarIdPaisFetchCompuesta =  async (nombre:any) => {
     
     let url = `https://api.nationalize.io/?name=${nombre}`;
-
+    console.log(true);
+    
     manejadorFetchCompuesta(url)
         .then(res => res.json())
         .then(resJSON => {
 
+            console.log(resJSON);
+            
             let paisMasProb = resJSON.country.reduce((a:any, b:any) => 
             {
                 return a.probability > b.probability ? a : b;
@@ -29,7 +32,8 @@ const averiguarIdPaisFetchCompuesta =  async (nombre:any) => {
         })
         .then(res => res.json())
         .then(resJSON => {
-
+            console.log(resJSON);
+            
             alert(`Probablemente seas de ${resJSON[0].translations.spa.common}`);
         })
         .catch(err => {

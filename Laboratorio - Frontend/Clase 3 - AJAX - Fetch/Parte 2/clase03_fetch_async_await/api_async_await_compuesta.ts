@@ -8,9 +8,10 @@ window.onload = () => {
 const averiguarPaisCompuesta =  async (nombre:any) => {
     
     let url : string = `https://api.nationalize.io/?name=${nombre}`;
-
     try {
+        AdministrarGif(true, 2);
         let res = await manejadorFetch(url);
+        console.log(2);
 
         let resJSON = await res.json();
 
@@ -26,12 +27,14 @@ const averiguarPaisCompuesta =  async (nombre:any) => {
         res = await manejadorFetch(url);
         
         resJSON = await res.json();
+        console.log(resJSON);
         
         (<HTMLDivElement>document.getElementById("divResultado")).innerHTML = `País más probable: ${resJSON[0].translations.spa.common}`;
 
-    } catch (err) {
-
+    }catch (err) {
         alert(err);
+    }finally{
+        AdministrarGif(false);
     }
 };
 
@@ -50,3 +53,28 @@ const manejadorError = (res:any) =>
 
     return res;
 };;
+
+function AdministrarGif(mostrar:boolean, cual:number = 1):void 
+{
+    let gif : string = cual === 1 ? "./img/load.gif" : "./img/load2.gif";
+    let div : HTMLDivElement = <HTMLDivElement> document.getElementById("divGif");
+    let img : HTMLImageElement = <HTMLImageElement> document.getElementById("imgGif");
+    let body : HTMLBodyElement = document.body;
+
+    if(mostrar)
+    {
+        div.style.display = "block";
+        div.style.top = "45%";
+        div.style.left = "45%"
+        body.style.overflow = "hidden";
+        body.style.width = "100vw"
+        body.style.height = "100vh"
+        img.src = gif;
+    }
+    else
+    {
+        div.style.display = "none";
+        body.style.overflow = "none";
+        img.src = "";
+    }
+}
