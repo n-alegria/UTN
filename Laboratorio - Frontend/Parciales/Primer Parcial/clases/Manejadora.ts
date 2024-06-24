@@ -176,9 +176,10 @@ namespace PrimerParcial{
             }
             try{
                 (async () =>{
+                    (<HTMLDivElement>document.querySelector("#divTabla")).innerHTML = "";
                     const respuesta = await fetch(Manejadora.URL+`?${remitente}`, opciones);
                     const obj = await respuesta.json();
-                    if(obj.exito){
+                    if(!obj.exito){
                         existe = true;
                         const listadoSobres = obj.sobres;
                         if(listadoSobres.length){
