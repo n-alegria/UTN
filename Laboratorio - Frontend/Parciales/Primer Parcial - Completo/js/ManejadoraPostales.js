@@ -17,13 +17,12 @@ var Alegria;
             this.precio_estampilla = precio_estampilla;
         }
         toJSON() {
-            return JSON.parse(`{"direccion_destinatario":"${this.direccion_destinatario}","remitente":"${this.remitente}","precio_estampilla":${this.precio_estampilla}}`);
+            const cadena = `{"direccion_destinatario":"${this.direccion_destinatario}","remitente":"${this.remitente}","precio_estampilla":"${this.precio_estampilla}"}`;
+            return JSON.parse(cadena);
         }
     }
     Alegria.Sobre = Sobre;
 })(Alegria || (Alegria = {}));
-document.addEventListener("DOMContentLoaded", () => {
-});
 var PrimerParcial;
 (function (PrimerParcial) {
     class Manejadora {
@@ -32,116 +31,115 @@ var PrimerParcial;
             const remitente = document.querySelector("#remitente").value;
             const precio_estampilla = document.querySelector("#precio_estampilla").value;
             const sobre = new Alegria.Sobre(direccion_destinatario, remitente, parseInt(precio_estampilla));
-            const xhttp = new XMLHttpRequest();
-            xhttp.open("POST", Manejadora.URL, true);
-            xhttp.setRequestHeader("content-type", "application/json");
-            xhttp.send(JSON.stringify(sobre.toJSON()));
-            xhttp.onreadystatechange = () => {
-                if (xhttp.status === 200 && xhttp.readyState === 4) {
-                    console.log(xhttp.responseText);
-                    const respuesta = JSON.parse(xhttp.responseText);
-                    if (respuesta.exito) {
-                        console.log(respuesta.mensaje);
-                        Swal.fire({
-                            position: "center",
-                            icon: "success",
-                            title: respuesta.mensaje,
-                            showConfirmButton: false,
-                            timer: 1500
-                        });
-                        Manejadora.MostrarSobres();
-                    }
-                    else {
-                        console.log(respuesta.mensaje);
-                        Swal.fire({
-                            position: "center",
-                            icon: "error",
-                            title: respuesta.mensaje,
-                            showConfirmButton: false,
-                            timer: 1500
-                        });
-                    }
-                }
-            };
-        }
-        static MostrarSobres() {
             const opciones = {
-                method: "GET",
-                headers: { "content-type": "application/json" }
+                method: "POST",
+                headers: { "content-type": "application/json" },
+                body: JSON.stringify(sobre.toJSON())
             };
             try {
                 (() => __awaiter(this, void 0, void 0, function* () {
                     const respuesta = yield fetch(Manejadora.URL, opciones);
-                    const obj = yield respuesta.json();
-                    if (obj.exito) {
-                        const listadoSobres = obj.sobres;
-                        if (listadoSobres.length) {
-                            let tabla = `<table><thead><tr><th>Id</th><tr><th>Direccion del Destinatario</th><th>Remitente</th><th>Precio de la Estampilla</th><th colspan="2">Acciones</th></tr></thead>`;
-                            tabla += "<tbody>";
-                            listadoSobres.forEach((sobre) => {
+                    const objRetorno = yield respuesta.json();
+                    console.log(objRetorno.mensaje);
+                    if (objRetorno.exito) {
+                        Swal.fire({
+                            position: "center",
+                            icon: "success",
+                            title: objRetorno.mensaje,
+                            showConfirmButton: false,
+                            timer: 1500
+                        });
+                    }
+                    else {
+                        Swal.fire({
+                            position: "center",
+                            icon: "failed",
+                            title: objRetorno.mensaje,
+                            showConfirmButton: false,
+                            timer: 1500
+                        });
+                    }
+                }))();
+            }
+            catch (error) {
+                console.log(error);
+            }
+            ;
+            Manejadora.LimpiarCampos();
+        }
+        static MostrarSobres() {
+            try {
+                (() => __awaiter(this, void 0, void 0, function* () {
+                    const opciones = {
+                        method: "GET",
+                        headers: { "content-type": "application/json" }
+                    };
+                    const respuesta = yield fetch(Manejadora.URL, opciones);
+                    const objRetorno = yield respuesta.json();
+                    if (objRetorno.exito) {
+                        const listado = objRetorno.sobres;
+                        if (listado.length) {
+                            let headerTable = `<table><thead>
+                                                        <tr><th>ID</th><th>Dirección del Destinatario</th><th>Remitente</th><th>Precio de la Estampilla</th><th>Acciones</th></tr>
+                                                    </thead>`;
+                            let tabla = "<tbody>";
+                            listado.forEach((item) => {
                                 tabla += `<tr>
-                                            <td>${sobre.id}</td>
-                                            <td>${sobre.direccion_destinatario}</td>
-                                            <td>${sobre.remitente}</td>
-                                            <td>${sobre.precio_estampilla}</td>`;
-                                tabla += `<td>
-                                        <button 
-                                            type="button" 
-                                            class="btn btn-info" 
-                                            id="btnModificar" 
-                                            data-obj='${JSON.stringify(sobre)}' 
-                                            name="btnModificar"
-                                        >
-                                            <span class="bi bi-pencil"></span>
-                                        </button>
-                                        </td>
-                                        <td>
-                                        <button 
-                                            type="button"
-                                            class="btn btn-danger"
-                                            id="btnEliminar" 
-                                            data-obj='${JSON.stringify(sobre)}'
-                                            name="btnEliminar">
-                                            <span class="bi bi-x-circle"></span>
-                                        </button>`;
-                                tabla += "</td></tr>";
+                                            <td>${item.id}</td>    
+                                            <td>${item.direccion_destinatario}</td>    
+                                            <td>${item.remitente}</td>    
+                                            <td>${item.precio_estampilla}</td>
+                                            <td><button 
+                                                    type="button" 
+                                                    class="btn btn-info" 
+                                                    id="btnModificar" 
+                                                    data-obj='${JSON.stringify(item)}' 
+                                                    name="btnModificar">
+                                                <span class="bi bi-pencil"></span>
+                                                </button>
+                                            </td>
+                                            <td><button 
+                                                    type="button"
+                                                    class="btn btn-danger"
+                                                    id="btnEliminar" 
+                                                    data-obj='${JSON.stringify(item)}'
+                                                    name="btnEliminar">
+                                                    <span class="bi bi-x-circle"></span>
+                                                </button></td>
+                                        </tr>`;
                             });
-                            tabla += "</tbody></table>";
-                            document.querySelector("#divTabla").innerHTML = tabla;
-                            document.getElementsByName("btnModificar").forEach((botonModificar) => {
+                            let footerTable = `</tbody></table>`;
+                            document.querySelector("#divTabla").innerHTML = headerTable + tabla + footerTable;
+                            document.querySelectorAll("#btnModificar").forEach((botonModificar) => {
                                 botonModificar.addEventListener("click", () => {
-                                    const objJson = botonModificar.getAttribute("data-obj");
-                                    const obj = JSON.parse(objJson);
-                                    document.querySelector("#id").value = obj.id;
-                                    document.querySelector("#direccion_destinatario").value = obj.direccion_destinatario;
-                                    document.querySelector("#remitente").value = obj.remitente;
-                                    document.querySelector("#precio_estampilla").value = obj.precio_estampilla;
+                                    const objJSON = JSON.parse(botonModificar.getAttribute("data-obj"));
+                                    document.querySelector("#id").value = objJSON.id;
+                                    document.querySelector("#direccion_destinatario").value = objJSON.direccion_destinatario;
+                                    document.querySelector("#remitente").value = objJSON.remitente;
+                                    document.querySelector("#precio_estampilla").value = objJSON.precio_estampilla;
                                     document.querySelector("#id").readOnly = true;
                                     document.querySelector("#id").disabled = true;
                                     document.querySelector("#id").style.cursor = "not-allowed";
-                                    const btn = document.querySelector("#btn-agregar");
-                                    btn.value = "Modificar";
-                                    btn.onclick = () => Manejadora.ModificarSobre();
                                 });
-                            });
-                            document.getElementsByName("btnEliminar").forEach((botonEliminar) => {
-                                botonEliminar.addEventListener("click", () => {
-                                    const objJson = botonEliminar.getAttribute("data-obj");
-                                    const obj = JSON.parse(objJson);
-                                    const { direccion_destinatario, remitente, id } = obj;
-                                    Swal.fire({
-                                        title: `¿Seguro desea eliminar el sobre con direccion ${direccion_destinatario} y remitente ${remitente}?`,
-                                        text: "La accion no se puede revertir",
-                                        icon: "warning",
-                                        showCancelButton: true,
-                                        confirmButtonColor: "#3085d6",
-                                        cancelButtonColor: "#d33",
-                                        confirmButtonText: "Eliminar",
-                                        cancelButtonText: "Cancelar"
-                                    }).then((respuesta) => {
-                                        if (respuesta.isConfirmed) {
-                                            Manejadora.EliminarSobre(id);
-                                        }
+                                document.getElementsByName("btnEliminar").forEach((botonEliminar) => {
+                                    botonEliminar.addEventListener("click", () => {
+                                        const objJson = botonEliminar.getAttribute("data-obj");
+                                        const obj = JSON.parse(objJson);
+                                        const { direccion_destinatario, remitente, id } = obj;
+                                        Swal.fire({
+                                            title: `¿Seguro desea eliminar el sobre con direccion ${direccion_destinatario} y remitente ${remitente}?`,
+                                            text: "La accion no se puede revertir",
+                                            icon: "warning",
+                                            showCancelButton: true,
+                                            confirmButtonColor: "#3085d6",
+                                            cancelButtonColor: "#d33",
+                                            confirmButtonText: "Eliminar",
+                                            cancelButtonText: "Cancelar"
+                                        }).then((respuesta) => {
+                                            if (respuesta.isConfirmed) {
+                                                Manejadora.EliminarSobre(id);
+                                            }
+                                        });
                                     });
                                 });
                             });
@@ -154,7 +152,7 @@ var PrimerParcial;
                             console.log("Listado Vacío");
                             Swal.fire({
                                 position: "center",
-                                icon: "success",
+                                icon: "info",
                                 title: "Listado Vacío",
                                 showConfirmButton: false,
                                 timer: 1500
@@ -167,34 +165,36 @@ var PrimerParcial;
                 console.log(error);
             }
             ;
+            Manejadora.LimpiarCampos();
         }
-        static VerificarExistencia() {
-            let existe = false;
-            const remitente = document.getElementById("remitente").value;
+        static VerificarSobre() {
+            const remitente = document.querySelector("#remitente").value;
             const opciones = {
-                method: "GET"
+                method: "GET",
+                headers: { "content-type": "application/json" },
             };
             try {
                 (() => __awaiter(this, void 0, void 0, function* () {
                     document.querySelector("#divTabla").innerHTML = "";
-                    const respuesta = yield fetch(Manejadora.URL + `?${remitente}`, opciones);
-                    const obj = yield respuesta.json();
-                    if (!obj.exito) {
-                        existe = true;
-                        const listadoSobres = obj.sobres;
-                        if (listadoSobres.length) {
-                            let tabla = `<table><thead><tr><tr><th>Id</th><tr><th>Direccion del Destinatario</th><th>Remitente</th><th>Precio de la Estampilla</th></tr></thead>`;
-                            tabla += "<tbody>";
-                            listadoSobres.forEach((sobre) => {
+                    const respuesta = yield fetch("http://localhost:2024/sobre/" + remitente, opciones);
+                    const objRetorno = yield respuesta.json();
+                    if (objRetorno.sobres) {
+                        const listado = objRetorno.sobres;
+                        if (listado.length) {
+                            let headerTable = `<table><thead>
+                                                        <tr><th>ID</th><th>Dirección del Destinatario</th><th>Remitente</th><th>Precio de la Estampilla</th></tr>
+                                                    </thead>`;
+                            let tabla = "<tbody>";
+                            listado.forEach((item) => {
                                 tabla += `<tr>
-                                            <td>${sobre.id}</td>
-                                            <td>${sobre.direccion_destinatario}</td>
-                                            <td>${sobre.remitente}</td>
-                                            <td>${sobre.precio_estampilla}</td>
+                                            <td>${item.id}</td>    
+                                            <td>${item.direccion_destinatario}</td>    
+                                            <td>${item.remitente}</td>    
+                                            <td>${item.precio_estampilla}</td>    
                                         </tr>`;
                             });
-                            tabla += `</tbody>`;
-                            document.querySelector("#divTabla").innerHTML = tabla;
+                            let footerTable = `</tbody></table>`;
+                            document.querySelector("#divTabla").innerHTML = headerTable + tabla + footerTable;
                         }
                         else {
                             const h2 = document.createElement("H2");
@@ -204,7 +204,7 @@ var PrimerParcial;
                             console.log("Listado Vacío");
                             Swal.fire({
                                 position: "center",
-                                icon: "success",
+                                icon: "info",
                                 title: "Listado Vacío",
                                 showConfirmButton: false,
                                 timer: 1500
@@ -214,9 +214,10 @@ var PrimerParcial;
                 }))();
             }
             catch (error) {
-                console.error(error);
+                console.log(error);
             }
-            return existe;
+            ;
+            Manejadora.LimpiarCampos();
         }
         static ModificarSobre() {
             const id = document.querySelector("#id").value;
@@ -258,6 +259,7 @@ var PrimerParcial;
             catch (error) {
                 console.error(error);
             }
+            Manejadora.LimpiarCampos();
         }
         static EliminarSobre(id) {
             const opciones = {
@@ -295,6 +297,13 @@ var PrimerParcial;
             catch (error) {
                 console.error(error);
             }
+            Manejadora.LimpiarCampos();
+        }
+        static LimpiarCampos() {
+            document.querySelector("#id").value = "";
+            document.querySelector("#direccion_destinatario").value = "";
+            document.querySelector("#remitente").value = "";
+            document.querySelector("#precio_estampilla").value = "";
         }
     }
     Manejadora.URL = "http://localhost:2024/sobre";
@@ -320,32 +329,29 @@ var PrimerParcial;
 (function (PrimerParcial) {
     class ManejadoraPostales {
         static MostrarPostales() {
+            const opciones = {
+                method: "GET",
+                headers: { "content-type": "application/json" },
+            };
             try {
                 (() => __awaiter(this, void 0, void 0, function* () {
-                    const promesa = yield fetch(ManejadoraPostales.URL, { method: "GET", headers: { "content-type": "application/json" } });
-                    const resultadoPromesa = yield promesa.json();
-                    if (!resultadoPromesa.exito) {
-                        console.log(resultadoPromesa.mensaje);
-                        Swal.fire({
-                            position: "center",
-                            icon: "warning",
-                            title: resultadoPromesa.mensaje,
-                            showConfirmButton: false,
-                            timer: 1500
-                        });
-                    }
-                    else {
-                        const listado = resultadoPromesa.postales;
+                    const respuesta = yield fetch(ManejadoraPostales.URL, opciones);
+                    const objRetorno = yield respuesta.json();
+                    if (objRetorno.exito) {
+                        const listado = objRetorno.postales;
                         if (listado.length) {
-                            let tabla = `<table><thead><tr><th>Id</th><tr><th>Direccion del Destinatario</th><th>Remitente</th><th>Precio de la Estampilla</th><th>Imagen</th><th colspan="2">Acciones</th></tr></thead>`;
+                            document.querySelector("#divTablaPostales").innerHTML = "";
+                            let tabla = `<table>
+                                                        <thead>
+                                                        <tr><th>ID</th><th>Direccion del Destinatario</th><th>Remitente</th><th>Precio de la Estampilla</th><th>Imagen</th><th colspan="2">Acciones</th></tr></thead>`;
                             tabla += "<tbody>";
                             listado.forEach((elemento) => {
                                 tabla += `<tr>
                                                 <td>${elemento.id}</td>
                                                 <td>${elemento.direccion_destinatario}</td>
                                                 <td>${elemento.remitente}</td>
-                                                <td>${elemento.precio_estampilla}</td>;
-                                                <td>${elemento.imagen}</td>`;
+                                                <td>${elemento.precio_estampilla}</td>
+                                                <td><img src="http://localhost:2024/${elemento.imagen}" width="50px" height="50px"></td>`;
                                 tabla += `<td>
                                             <button 
                                                 type="button" 
@@ -384,11 +390,21 @@ var PrimerParcial;
                             });
                         }
                     }
+                    else {
+                        Swal.fire({
+                            position: "center",
+                            icon: "failed",
+                            title: "Ocurrio un error",
+                            showConfirmButton: false,
+                            timer: 1500
+                        });
+                    }
                 }))();
             }
-            catch (err) {
-                console.log(err);
+            catch (error) {
+                console.log(error);
             }
+            ;
         }
         static AgregarPostal() {
             const direccion_destinatario = document.querySelector("#direccion_destinatario").value;
@@ -418,7 +434,7 @@ var PrimerParcial;
                             showConfirmButton: false,
                             timer: 1500
                         });
-                        PrimerParcial.Manejadora.MostrarSobres();
+                        ManejadoraPostales.MostrarPostales();
                     }
                 };
             }

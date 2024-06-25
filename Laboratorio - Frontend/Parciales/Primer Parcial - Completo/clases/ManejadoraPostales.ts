@@ -1,48 +1,46 @@
-///<reference path="Sobre.ts"/>
-///<reference path="Postal.ts"/>
+///<reference path="./Sobre.ts" />
+///<reference path="./Postal.ts" />
 
 document.addEventListener("DOMContentLoaded", () =>{
-    PrimerParcial.ManejadoraPostales.MostrarPostales();
+    PrimerParcial.ManejadoraPostales.MostrarPostales()
 });
 
-// Crear en TypeScript la clase Manejadora (en el namespace PrimerParcial) que posea los siguientes métodos y funcionalidades:
 namespace PrimerParcial{
     export class ManejadoraPostales{
         static URL:string = "http://localhost:2024/postal";
 
-        /* Al cargar la página postales.html, se deberá cargar el listado de postales obtenidas desde la base
-        de datos, para ello se invocará al método MostrarPostales que enviará (desde AJAX/FETCH) hacia
-        “http://localhost:2024/postal”, una petición por GET, que retornará un JSON (éxito:true/false,
-        postales:array/null) para crear un listado dinámico (en el FRONTEND).
-        Nota: preparar la tabla (HTML) con una columna extra para que muestre la imagen de la postal (50px X 50px).
-        Mostrar el listado en la página (div id='divTablaPostales').*/
+        // MostrarPostales.
+        // Al cargar la página postales.html, se deberá cargar el listado de postales obtenidas desde la base
+        // de datos, para ello se invocará al método MostrarPostales que enviará (desde AJAX/FETCH) hacia
+        // “http://localhost:2024/postal”, una petición por GET, que retornará un JSON (éxito:true/false,
+        // postales:array/null) para crear un listado dinámico (en el FRONTEND).
+        // Nota: preparar la tabla (HTML) con una columna extra para que muestre la imagen de la postal
+        // (50px X 50px).
+        // Mostrar el listado en la página (div id='divTablaPostales').
         public static MostrarPostales(){
+            const opciones = {
+                method: "GET",
+                headers: {"content-type":"application/json"},
+            }
             try{
-                (
-                    async () => {
-                        const promesa = await fetch(ManejadoraPostales.URL, {method:"GET",headers:{"content-type":"application/json"}})
-                        const resultadoPromesa = await promesa.json();
-                        if(!resultadoPromesa.exito){
-                            console.log(resultadoPromesa.mensaje);
-                            Swal.fire({
-                                position: "center",
-                                icon: "warning",
-                                title: resultadoPromesa.mensaje,
-                                showConfirmButton: false,
-                                timer: 1500
-                            });
-                        }else{
-                            const listado = resultadoPromesa.postales;
+                (async () =>{
+                    const respuesta = await fetch(ManejadoraPostales.URL, opciones);
+                    const objRetorno = await respuesta.json();
+                    if(objRetorno.exito){
+                        const listado = objRetorno.postales;
                             if(listado.length){
-                                let tabla:string = `<table><thead><tr><th>Id</th><tr><th>Direccion del Destinatario</th><th>Remitente</th><th>Precio de la Estampilla</th><th>Imagen</th><th colspan="2">Acciones</th></tr></thead>`;
+                                (<HTMLDivElement>document.querySelector("#divTablaPostales")).innerHTML = "";
+                                let tabla:string = `<table>
+                                                        <thead>
+                                                        <tr><th>ID</th><th>Direccion del Destinatario</th><th>Remitente</th><th>Precio de la Estampilla</th><th>Imagen</th><th colspan="2">Acciones</th></tr></thead>`;
                                 tabla += "<tbody>";
                                 listado.forEach((elemento : any) => {
                                     tabla += `<tr>
                                                 <td>${elemento.id}</td>
                                                 <td>${elemento.direccion_destinatario}</td>
                                                 <td>${elemento.remitente}</td>
-                                                <td>${elemento.precio_estampilla}</td>;
-                                                <td>${elemento.imagen}</td>`;
+                                                <td>${elemento.precio_estampilla}</td>
+                                                <td><img src="http://localhost:2024/${elemento.imagen}" width="50px" height="50px"></td>`;
                                     tabla += `<td>
                                             <button 
                                                 type="button" 
@@ -79,21 +77,27 @@ namespace PrimerParcial{
                                     timer: 1500
                                 });
                             }
-                        }
+                    }else{
+                        Swal.fire({
+                            position: "center",
+                            icon: "failed",
+                            title: "Ocurrio un error",
+                            showConfirmButton: false,
+                            timer: 1500
+                        });
                     }
-                )();
-            }catch(err){
-                console.log(err);
-            }
+                })();
+            }catch(error){ console.log(error) };
         }
 
-        /* AgregarPostal. Obtiene los datos de la postal (incluyendo la imagen) desde la página
-        postales.html y se enviará (por AJAX/FETCH) hacia “http://localhost:2024/postal” que recibirá por
-        POST obj_postal (direccion_destinatario, remitente y precio_estampilla, en formato de cadena
-        JSON) e imagen para registrar una postal en la base de datos.
-        Se retornará un JSON que contendrá: éxito(bool) y mensaje(string) indicando lo acontecido.
-        Informar por consola y alert el mensaje recibido.
-        Refrescar el listado de las postales.*/
+        // AgregarPostal
+        // AgregarPostal. Obtiene los datos de la postal (incluyendo la imagen) desde la página
+        // postales.html y se enviará (por AJAX/FETCH) hacia “http://localhost:2024/postal” que recibirá por
+        // POST obj_postal (direccion_destinatario, remitente y precio_estampilla, en formato de cadena JSON)
+        // e imagen para registrar una postal en la base de datos.
+        // Se retornará un JSON que contendrá: éxito(bool) y mensaje(string) indicando lo acontecido.
+        // Informar por consola y alert el mensaje recibido.
+        // Refrescar el listado de las postales.
         public static AgregarPostal(){
             const direccion_destinatario:string = (<HTMLInputElement>document.querySelector("#direccion_destinatario")).value;
             const remitente:string = (<HTMLInputElement>document.querySelector("#remitente")).value;
@@ -125,11 +129,10 @@ namespace PrimerParcial{
                                 showConfirmButton: false,
                                 timer: 1500
                             });
-                            Manejadora.MostrarSobres();
+                            ManejadoraPostales.MostrarPostales();
                         }
                     }
-                }catch(err){
-                console.log(err);
+                }catch(err){ console.log(err);
                 alert(err);
             }
         }
