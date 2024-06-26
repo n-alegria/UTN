@@ -1,3 +1,5 @@
+import { log } from "console";
+
 const express = require('express');
 
 const app = express();
@@ -298,9 +300,15 @@ app.post('/postal', upload.single("imagen"), (request:any, response:any)=>{
     let obj_postal = JSON.parse(obj_postal_str.obj_postal);
 
     let path : string = file.destination + obj_postal.remitente + "." + extension;
+    console.log(path);
+    console.log(file.path);
+    
+    
     fs.renameSync(file.path, path);
 
     obj_postal.imagen = path.split("public/")[1];
+    console.log(obj_postal.imagen);
+    
 
     request.getConnection((err:any, conn:any)=>{
 
@@ -351,9 +359,12 @@ app.put('/postal/:id', upload.single("imagen"), (request:any, response:any)=>{
     obj_postal.precio_estampilla = postal_json.precio_estampilla;
 
     let path : string = file.destination + obj_postal.remitente + "." + extension;
+
     fs.renameSync(file.path, path);
 
     obj_postal.imagen = path.split("public/")[1];
+    console.log(obj_postal);
+    
     let path_imagen : string = "/";
 
     request.getConnection((err:any, conn:any)=>{

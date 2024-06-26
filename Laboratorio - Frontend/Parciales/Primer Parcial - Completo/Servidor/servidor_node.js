@@ -1,4 +1,5 @@
 "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 const express = require('express');
 const app = express();
 app.set('puerto', 2024);
@@ -184,8 +185,11 @@ app.post('/postal', upload.single("imagen"), (request, response) => {
     let obj_postal_str = JSON.parse(JSON.stringify(request.body));
     let obj_postal = JSON.parse(obj_postal_str.obj_postal);
     let path = file.destination + obj_postal.remitente + "." + extension;
+    console.log(path);
+    console.log(file.path);
     fs.renameSync(file.path, path);
     obj_postal.imagen = path.split("public/")[1];
+    console.log(obj_postal.imagen);
     request.getConnection((err, conn) => {
         if (err) {
             console.log("Error al intentar conectarse a la bd.");
@@ -222,6 +226,7 @@ app.put('/postal/:id', upload.single("imagen"), (request, response) => {
     let path = file.destination + obj_postal.remitente + "." + extension;
     fs.renameSync(file.path, path);
     obj_postal.imagen = path.split("public/")[1];
+    console.log(obj_postal);
     let path_imagen = "/";
     request.getConnection((err, conn) => {
         if (err) {

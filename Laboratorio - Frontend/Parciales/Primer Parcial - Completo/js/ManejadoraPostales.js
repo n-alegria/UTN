@@ -377,6 +377,39 @@ var PrimerParcial;
                             tabla += "</tbody></table>";
                             document.querySelector("#divTablaPostales").innerHTML = "";
                             document.querySelector("#divTablaPostales").innerHTML = tabla;
+                            document.querySelectorAll("#btnModificar").forEach((elemento) => {
+                                elemento.addEventListener("click", () => {
+                                    const objJSON = JSON.parse(elemento.getAttribute("data-obj"));
+                                    document.querySelector("#id").value = objJSON.id;
+                                    document.querySelector("#direccion_destinatario").value = objJSON.direccion_destinatario;
+                                    document.querySelector("#remitente").value = objJSON.remitente;
+                                    document.querySelector("#precio_estampilla").value = objJSON.precio_estampilla;
+                                    document.querySelector("#id").readOnly = true;
+                                    document.querySelector("#id").disabled = true;
+                                    document.querySelector("#id").style.cursor = "not-allowed";
+                                });
+                            });
+                            document.getElementsByName("btnEliminar").forEach((elemento) => {
+                                elemento.addEventListener("click", () => {
+                                    const objJson = elemento.getAttribute("data-obj");
+                                    const obj = JSON.parse(objJson);
+                                    const { direccion_destinatario, remitente, id } = obj;
+                                    Swal.fire({
+                                        title: `¿Seguro desea eliminar la postal con direccion ${direccion_destinatario} y remitente ${remitente}?`,
+                                        text: "La accion no se puede revertir",
+                                        icon: "warning",
+                                        showCancelButton: true,
+                                        confirmButtonColor: "#3085d6",
+                                        cancelButtonColor: "#d33",
+                                        confirmButtonText: "Eliminar",
+                                        cancelButtonText: "Cancelar"
+                                    }).then((respuesta) => {
+                                        if (respuesta.isConfirmed) {
+                                            ManejadoraPostales.EliminarPostal(id);
+                                        }
+                                    });
+                                });
+                            });
                         }
                         else {
                             document.querySelector("#divTablaPostales").innerHTML = "<h2>Listado Vacío</h2>";
@@ -440,8 +473,90 @@ var PrimerParcial;
             }
             catch (err) {
                 console.log(err);
-                alert(err);
             }
+            ManejadoraPostales.LimpiarCampos();
+        }
+        static ModificarPostal() {
+            const id = document.querySelector("#id").value;
+            const direccion_destinatario = document.querySelector("#direccion_destinatario").value;
+            const remitente = document.querySelector("#remitente").value;
+            const precio_estampilla = document.querySelector("#precio_estampilla").value;
+            const foto = document.querySelector("#imagen");
+            const path = foto.files[0].name;
+            const sobre = new Alegria.Sobre(direccion_destinatario, remitente, parseInt(precio_estampilla));
+            const form = new FormData();
+            form.append("imagen", foto.files[0]);
+            form.append("postal_json", JSON.stringify(sobre.toJSON()));
+            try {
+                const xhttp = new XMLHttpRequest();
+                xhttp.open("PUT", `http://localhost:2024/postal/${id}`, true);
+                xhttp.setRequestHeader("enctype", "multipart/form-data");
+                xhttp.send(form);
+                xhttp.onreadystatechange = () => {
+                    if (xhttp.status === 200 && xhttp.readyState === 4) {
+                        console.log(xhttp.responseText);
+                        const respuesta = JSON.parse(xhttp.responseText);
+                        const icono = respuesta.exito ? "success" : "warning";
+                        console.log(respuesta.mensaje);
+                        Swal.fire({
+                            position: "center",
+                            icon: icono,
+                            title: respuesta.mensaje,
+                            showConfirmButton: false,
+                            timer: 1500
+                        });
+                        ManejadoraPostales.MostrarPostales();
+                    }
+                };
+            }
+            catch (err) {
+                console.log(err);
+            }
+            ManejadoraPostales.LimpiarCampos();
+        }
+        static EliminarPostal(id) {
+            const opciones = {
+                method: "DELETE",
+                headers: { "content-type": "application/json" }
+            };
+            try {
+                (() => __awaiter(this, void 0, void 0, function* () {
+                    const respuesta = yield fetch(`http://localhost:2024/postal/${id}`, opciones);
+                    const obj = yield respuesta.json();
+                    if (obj.exito) {
+                        console.log(obj.mensaje);
+                        Swal.fire({
+                            position: "center",
+                            icon: "success",
+                            title: obj.mensaje,
+                            showConfirmButton: false,
+                            timer: 1500
+                        });
+                    }
+                    else {
+                        console.log(obj.mensaje);
+                        Swal.fire({
+                            position: "center",
+                            icon: "warning",
+                            title: obj.mensaje,
+                            showConfirmButton: false,
+                            timer: 1500
+                        });
+                    }
+                }))();
+            }
+            catch (error) {
+                console.error(error);
+            }
+            ManejadoraPostales.MostrarPostales();
+            ManejadoraPostales.LimpiarCampos();
+        }
+        static LimpiarCampos() {
+            document.querySelector("#id").value = "";
+            document.querySelector("#direccion_destinatario").value = "";
+            document.querySelector("#remitente").value = "";
+            document.querySelector("#precio_estampilla").value = "";
+            document.querySelector("#imagen").value = "";
         }
     }
     ManejadoraPostales.URL = "http://localhost:2024/postal";
