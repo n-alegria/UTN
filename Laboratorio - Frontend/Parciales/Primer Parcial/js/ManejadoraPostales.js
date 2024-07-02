@@ -176,9 +176,10 @@ var PrimerParcial;
             };
             try {
                 (() => __awaiter(this, void 0, void 0, function* () {
+                    document.querySelector("#divTabla").innerHTML = "";
                     const respuesta = yield fetch(Manejadora.URL + `?${remitente}`, opciones);
                     const obj = yield respuesta.json();
-                    if (obj.exito) {
+                    if (!obj.exito) {
                         existe = true;
                         const listadoSobres = obj.sobres;
                         if (listadoSobres.length) {
@@ -421,12 +422,10 @@ var PrimerParcial;
                     }
                 };
             }
-            finally {
+            catch (err) {
+                console.log(err);
+                alert(err);
             }
-        }
-        catch(err) {
-            console.log(err);
-            alert(err);
         }
     }
     ManejadoraPostales.URL = "http://localhost:2024/postal";

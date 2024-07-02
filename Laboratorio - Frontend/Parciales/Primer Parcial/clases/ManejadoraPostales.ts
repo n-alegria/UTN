@@ -128,8 +128,7 @@ namespace PrimerParcial{
                             Manejadora.MostrarSobres();
                         }
                     }
-                }
-            }catch(err){
+                }catch(err){
                 console.log(err);
                 alert(err);
             }
