@@ -1,0 +1,35 @@
+*--->>> 
+
+- Ir al archivo httpd-vhosts.conf ubicado en C:\xampp\apache\conf\extra y configurar el virtual host:
+
+<VirtualHost *:80>
+    ServerAdmin administrador@mail.com
+    DocumentRoot "C:/xampp/htdocs/localhost"
+    ServerName localhost
+    ErrorLog "logs/localhost-error.log"
+    CustomLog "logs/localhost-access.log" common
+</VirtualHost>
+
+*<<<---
+
+*--->>> 
+
+- Ir al archivo hosts ubicado en C:\Windows\System32\drivers\etc y registrar el virtual host:
+
+C:\Windows\System32\drivers\etc ( hosts )
+
+127.0.0.1       localhost
+
+
+*<<<---
+
+*--->>> 
+
+- .htaccess ( dentro de public )
+
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^ index.php [QSA,L]
+
+*<<<---
