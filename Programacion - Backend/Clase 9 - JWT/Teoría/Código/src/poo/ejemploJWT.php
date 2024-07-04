@@ -99,6 +99,21 @@ class EjemploJWT implements ISlimeable, IMiddleware{
         return $newResponse->withHeader('Content-Type', 'application/json');
     }
 
+    public function verificarPorAuth(Request $request, Response $response, array $args) : Response {
+        $tokenBearer = $request->getHeader("Authorization")[0];
+        $token = explode("Bearer", $tokenBearer)[1];
+
+        $obj_rta = Autentificadora::verificarJWT($token);
+
+        $status = $obj_rta->verificado ? 200 : 403;
+
+        $newResponse = $response->withStatus($status);
+
+        $newResponse->getBody()->write(json_encode($obj_rta));
+    
+        return $newResponse->withHeader('Content-Type', 'application/json');
+    }
+
     public function obtenerAutosJson(Request $request, Response $response, array $args) : Response {
 
         $autos = $this->obtenerAutos();

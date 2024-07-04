@@ -227,6 +227,8 @@ $app->post('/jwt/poo/obtener_datos[/]', \EjemploJWT::class . ':obtenerDatos');
 
 $app->get('/jwt/poo/verificar[/]', \EjemploJWT::class . ':verificarPorHeader');
 
+$app->post('/jwt/poo/verificar/auth[/]', \EjemploJWT::class . ':verificarPorAuth');
+
 $app->get('/listado/autos[/]', \EjemploJWT::class . ':obtenerAutosJson');
 
 $app->get('/listado/autos/jwt[/]', \EjemploJWT::class . ':obtenerAutosJson')->add(\EjemploJWT::class . ':verificarToken');
